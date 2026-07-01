@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RIDE MAP JAPAN
 
-## Getting Started
+日本全国の自転車イベントを地図から発見するプラットフォーム。
+編集長・田渕君幸（TRYCLE合同会社）の目線によるコメント・レビューで、既存のDBサイトと差別化する。
 
-First, run the development server:
+> 「探す」のではなく「出会う」体験設計。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 技術スタック
+
+- **Next.js 16**（App Router） / **React 19** / **TypeScript**
+- **Tailwind CSS v4**（CSS設定方式・`app/globals.css` の `@theme`）
+- **react-leaflet 5 / Leaflet 1.9**（地図。CARTO dark タイル）
+- データ：`data/events.json`（将来 Supabase / Notion / Sheets へ移行可能な型を厳守）
+
+## ページ構成
+
+| パス | 内容 |
+|---|---|
+| `/` | トップ（ヒーロー + 全国マップ + 直近イベント） |
+| `/events` | 一覧（カテゴリ/月/エリア/難易度フィルター・3種ソート） |
+| `/events/[id]` | 詳細（基本情報・編集長コメント・概要・エントリーCTA・関連イベント／SSG） |
+| `/about` | サイトについて + 編集長プロフィール |
+
+## ディレクトリ
+
+```
+app/                ルート（layout / page / events / about / not-found）
+components/          Header, Footer, EventCard, CategoryBadge,
+                     JapanMap(client), MapSection(dynamic ssr:false), EventsExplorer
+lib/                 types.ts / categories.ts / events.ts / format.ts
+data/events.json     シードデータ（10件）
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 開発
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev      # http://localhost:3000
+npm run build    # 本番ビルド（全詳細ページを SSG）
+npm start        # 本番サーバー
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## デプロイ（Vercel）
 
-## Learn More
+このリポジトリを Vercel に接続すれば設定不要でデプロイ可能（Next.js 自動検出）。
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 例：Vercel CLI
+npx vercel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## イベントの追加・編集
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`data/events.json` に `lib/types.ts` の `Event` 型に従って追記する。
+`id` は slug 形式（例 `fuji-hillclimb-2026`）。追加後に再ビルドすれば詳細ページが自動生成される。
 
-## Deploy on Vercel
+- `category`: `hillclimb | race | gravel | cycling | fondo | enduro`
+- `difficulty`: `beginner | intermediate | advanced`
+- `editorComment` を入れると一覧カードに「★ 編集長pick」バッジが付く
+- `entryDeadline` が14日以内だと「締切間近」バッジが付く
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 注意
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+掲載情報は各公式サイトの公開情報をもとに編集部が独自にまとめたもの。
+seedデータの距離・標高・参加費等は**サンプル値**を含むため、公開前に各公式サイトで要確認。
+本サイトは TRYCLE合同会社 が運営する非公式まとめサイト。
