@@ -5,6 +5,7 @@ import type { Event } from "@/lib/types";
 import { catLabel, shortDate, watchCount, IC } from "@/lib/ui";
 import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 import { daysUntil } from "@/lib/format";
+import { MaybeButton } from "./MaybeButton";
 
 // モックの badgeFor 相当：締切/開催状況からバッジを決める。
 // 締切情報が無いイベントは「エントリー受付中」と断定せず「開催予定」を出す
@@ -124,6 +125,7 @@ export function EventCard({
           <Svg d={IC.eye} />
           <b>{watchCount(event.id)}</b>人が気になっている
         </span>
+        <MaybeButton eventId={event.id} eventName={event.name} />
         <span
           role="button"
           tabIndex={0}

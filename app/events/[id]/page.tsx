@@ -5,6 +5,7 @@ import { getAllEventIds, getEventById, getRelatedEvents } from "@/lib/events";
 import { CATEGORIES, DIFFICULTY_LABELS } from "@/lib/categories";
 import { CategoryBadge } from "@/components/CategoryBadge";
 import { EventCard } from "@/components/EventCard";
+import { MaybeButton } from "@/components/MaybeButton";
 import { formatEventDate, formatDateJP, daysUntil } from "@/lib/format";
 
 type Params = { id: string };
@@ -197,18 +198,21 @@ export default async function EventDetailPage({
             )}
           </p>
         )}
-        {ctaHref && (
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn mt-3"
-            style={{ padding: "12px 26px", fontSize: 15 }}
-            aria-label={`${event.name} の${isLocal ? "開催元ページを見る" : "公式サイトでエントリーする"}（新しいタブで開く）`}
-          >
-            {ctaLabel}
-          </a>
-        )}
+        <div className="mt-3 flex items-center justify-center gap-3">
+          {ctaHref && (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ padding: "12px 26px", fontSize: 15 }}
+              aria-label={`${event.name} の${isLocal ? "開催元ページを見る" : "公式サイトでエントリーする"}（新しいタブで開く）`}
+            >
+              {ctaLabel}
+            </a>
+          )}
+          <MaybeButton eventId={event.id} eventName={event.name} size="md" />
+        </div>
         <p className="mt-3 text-xs" style={{ color: "var(--faint)" }}>
           ※ 外部サイトが新しいタブで開きます。最新情報は必ず開催元でご確認ください。
         </p>
