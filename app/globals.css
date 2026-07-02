@@ -1020,7 +1020,7 @@ a {
   background: linear-gradient(160deg, #2a2018 0%, #6b3418 55%, var(--accent) 130%);
   overflow: hidden;
   opacity: 1;
-  transition: opacity 0.55s ease;
+  transition: opacity 0.45s ease;
 }
 #sr-splash.out {
   opacity: 0;
@@ -1033,7 +1033,7 @@ a {
   background-size: cover;
   background-position: center 42%;
   /* ゆっくり寄るケンバーンズ効果でワクワク感を出す */
-  animation: sp-zoom 2.4s ease-out forwards;
+  animation: sp-zoom 1.6s ease-out forwards;
 }
 #sr-splash .sp-photo::after {
   content: "";
@@ -1053,8 +1053,8 @@ a {
   bottom: 12vh;
   text-align: center;
   color: #fff;
-  animation: sp-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  animation-delay: 0.15s;
+  animation: sp-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: 0.05s;
 }
 #sr-splash .sp-mk {
   display: inline-grid;
