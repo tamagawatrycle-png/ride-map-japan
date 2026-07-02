@@ -13,6 +13,8 @@ export const IC = {
   mtn: '<path d="M3 20l6-11 4 6 2-3 6 8z"/>',
   eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/>',
   arr: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  share:
+    '<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 13.3l7.2 4.4M15.6 6.3l-7.2 4.4"/>',
 } as const;
 
 // カテゴリラベル（既存 CATEGORIES から取り出す薄いラッパー）

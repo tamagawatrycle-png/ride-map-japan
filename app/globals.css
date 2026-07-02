@@ -119,6 +119,8 @@ a {
   font-weight: 800;
   letter-spacing: 0.01em;
   font-size: 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo .mk {
   width: 26px;
@@ -159,6 +161,63 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* 今週の足跡（アクセス数）カウンター */
+.wkcount {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--accent-weak);
+  border: 1px solid var(--accent-mid);
+  line-height: 1;
+  white-space: nowrap;
+}
+.wkcount svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--accent);
+}
+.wkcount b {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-strong);
+}
+.wkcount small {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-strong);
+  letter-spacing: 0.02em;
+}
+
+/* モバイル：ヘッダーはロゴ＋足跡＋一覧ボタンに絞ってすっきり見せる
+   （マップ/種別/特集はページ本体・フッターから辿れるため非表示） */
+@media (max-width: 640px) {
+  .hd {
+    gap: 8px;
+    height: 54px;
+  }
+  .rm-nav {
+    display: none;
+  }
+  .logo {
+    font-size: 15px;
+  }
+  .logo small {
+    display: none;
+  }
+  .hd .right {
+    gap: 7px;
+  }
+  .wkcount {
+    padding: 4px 9px;
+    gap: 4px;
+  }
+  .wkcount small {
+    display: none;
+  }
 }
 
 /* ---------- Buttons ---------- */
@@ -235,19 +294,29 @@ a {
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin: 0 0 16px;
 }
 .chip {
   background: #fff;
   border: 1px solid var(--line2);
   color: var(--sub);
-  padding: 8px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.12s;
+}
+@media (max-width: 560px) {
+  .filters {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .chip {
+    padding: 4px 10px;
+    font-size: 11.5px;
+  }
 }
 .chip:hover {
   border-color: var(--ink);
@@ -425,17 +494,27 @@ a {
 }
 .evgrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+}
+@media (max-width: 1100px) {
+  .evgrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 900px) {
   .evgrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* モバイルでも2列表示（カードのコンパクト化は .ev 定義の後で指定） */
 @media (max-width: 560px) {
   .evgrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .lmap {
+    height: 400px;
   }
 }
 .ev {
@@ -550,16 +629,21 @@ a {
 .ev .foot {
   display: flex;
   align-items: center;
+  gap: 8px;
   margin-top: 13px;
   padding-top: 12px;
   border-top: 1px solid var(--line);
 }
 .ev .watch {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--faint);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ev .watch svg {
   width: 14px;
@@ -587,6 +671,90 @@ a {
   stroke: currentColor;
   fill: none;
   stroke-width: 2.2;
+}
+/* 「走ろ！」共有ボタン（カード右下） */
+.ev .share {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.12s;
+}
+.ev .share:hover {
+  background: var(--accent-strong);
+}
+.ev .share svg {
+  width: 13px;
+  height: 13px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* モバイル2列時のコンパクトカード（.ev 定義より後＝上書き優先） */
+@media (max-width: 560px) {
+  .ev {
+    padding: 12px;
+    border-radius: 13px;
+  }
+  .ev .row1 {
+    gap: 4px 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .ev .cat {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .ev .cat i {
+    width: 6px;
+    height: 6px;
+  }
+  .ev .badge {
+    font-size: 9px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .ev h3 {
+    font-size: 13.5px;
+    line-height: 1.32;
+  }
+  .ev .pick {
+    display: none;
+  }
+  .ev .meta {
+    font-size: 11px;
+    gap: 3px 10px;
+    margin-top: 7px;
+  }
+  .ev .meta svg {
+    width: 12px;
+    height: 12px;
+  }
+  /* タグと「気になっている数」は省略。フッターは「走ろ！」ボタンだけ右下に残す */
+  .ev .tags {
+    display: none;
+  }
+  .ev .foot {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .ev .watch {
+    display: none;
+  }
+  .ev .share {
+    font-size: 11px;
+    padding: 4px 11px;
+  }
 }
 
 /* ---------- Sections ---------- */

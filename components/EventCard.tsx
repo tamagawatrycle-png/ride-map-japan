@@ -23,6 +23,27 @@ function Svg({ d }: { d: string }) {
   );
 }
 
+// 「走ろ！」共有：ネイティブ共有シート → 非対応時はリンクをコピー。
+// （将来のローカル機能「走る企画の共有」へ発展させる想定の入口）
+async function shareRide(ev: Event) {
+  const url = `${window.location.origin}/events/${ev.id}`;
+  const text = `走ろ！「${ev.name}」`;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: ev.name, text, url });
+    } catch {
+      /* ユーザーがキャンセル */
+    }
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(`${text} ${url}`);
+    window.alert("共有リンクをコピーしました");
+  } catch {
+    /* クリップボード不可 */
+  }
+}
+
 export function EventCard({
   event,
   active = false,
@@ -85,9 +106,26 @@ export function EventCard({
           <Svg d={IC.eye} />
           <b>{watchCount(event.id)}</b>人が気になっている
         </span>
-        <span className="go">
-          エントリー
-          <Svg d={IC.arr} />
+        <span
+          role="button"
+          tabIndex={0}
+          className="share"
+          aria-label={`走ろ！ ${event.name} を共有`}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            void shareRide(event);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              e.stopPropagation();
+              void shareRide(event);
+            }
+          }}
+        >
+          <Svg d={IC.share} />
+          走ろ！
         </span>
       </div>
     </Link>

@@ -1,33 +1,13 @@
 "use client";
 
-// Explore：フィルターチップ + ベクター日本地図 + イベントカードリスト。
-// 地図ピン ⇔ カードのホバー相互ハイライトを activeId の共有 state で実現。
-// （承認済みモックの #explore セクション相当。発見/編集部トグルは公開専用のため撤去）
+// Explore：見出し + フィルターチップ + インタラクティブ・タイル地図 + イベントカードグリッド。
+// 地図はズーム/パン可能な Leaflet 版（MapSection）をフロントに配置。フィルターでマーカーも同期。
 
-import { useMemo, useState } from "react";
-import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import type { Event } from "@/lib/types";
 import { EventCard } from "./EventCard";
-import { daysUntil } from "@/lib/format";
-import { matchesFilter, type FilterKey } from "@/lib/ui";
-
-// 地図は SSR 不可（fetch + getBBox が window/DOM 依存）→ client 内で ssr:false
-const JapanMap = dynamic(() => import("./JapanMap"), {
-  ssr: false,
-  loading: () => (
-    <div className="mappanel" style={{ minHeight: 360 }}>
-      <div
-        style={{
-          padding: 24,
-          color: "var(--faint)",
-          fontSize: 13,
-        }}
-      >
-        地図を読み込み中…
-      </div>
-    </div>
-  ),
-});
+import { MapSection } from "./MapSection";
+import { matchesFilter, watchCount, type FilterKey } from "@/lib/ui";
 
 const CHIPS: { k: FilterKey; label: string }[] = [
   { k: "all", label: "すべて" },
@@ -48,21 +28,17 @@ export function ExploreSection({
   filter: FilterKey;
   onFilterChange: (k: FilterKey) => void;
 }) {
-  const [activeId, setActiveId] = useState<string | null>(null);
-
   const filtered = useMemo(
     () => events.filter((e) => matchesFilter(e, filter)),
     [events, filter],
   );
 
-  // 開催前を上・開催日昇順（モックの list ソート相当）
+  // アクセス数（気になっている数）の多い順。同数は開催日昇順で安定化。
   const sorted = useMemo(() => {
-    const today = new Date();
-    return [...filtered].sort((a, b) => {
-      const ap = daysUntil(a.date, today) < 0 ? 1 : 0;
-      const bp = daysUntil(b.date, today) < 0 ? 1 : 0;
-      return ap - bp || a.date.localeCompare(b.date);
-    });
+    return [...filtered].sort(
+      (a, b) =>
+        watchCount(b.id) - watchCount(a.id) || a.date.localeCompare(b.date),
+    );
   }, [filtered]);
 
   return (
@@ -99,25 +75,16 @@ export function ExploreSection({
         ))}
       </div>
 
-      <div
-        className="mapwrap"
-        style={{ maxWidth: 600, margin: "2px auto 0", position: "static" }}
-      >
-        <JapanMap events={filtered} activeId={activeId} onHover={setActiveId} />
-      </div>
+      {/* ズーム/パン可能なインタラクティブ地図（フィルター連動） */}
+      <MapSection events={filtered} />
 
-      <div className="listhead" style={{ marginTop: 36 }}>
+      <div className="listhead" style={{ marginTop: 32 }}>
         <span className="k">Events</span>
         <span className="k tabnum">{sorted.length}件</span>
       </div>
       <div className="list evgrid">
         {sorted.map((e) => (
-          <EventCard
-            key={e.id}
-            event={e}
-            active={activeId === e.id}
-            onHover={setActiveId}
-          />
+          <EventCard key={e.id} event={e} />
         ))}
       </div>
     </section>

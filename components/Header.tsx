@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FootprintCounter } from "./FootprintCounter";
 
 // モックの <header> を移植。公開専用のため 発見/編集部 トグルは撤去。
 // nav: マップ / 種別 / 特集 / サイトについて
@@ -22,6 +23,7 @@ export function Header() {
           <Link href="/about">サイトについて</Link>
         </nav>
         <div className="right">
+          <FootprintCounter />
           <Link className="btn sm" href="/events">
             イベント一覧
           </Link>
