@@ -19,6 +19,7 @@ const CHIPS: { k: FilterKey; label: string; color?: string }[] = [
   { k: "gravel", label: "グラベル", color: CATEGORIES.gravel.color },
   { k: "jbcf", label: "JBCF", color: JBCF_COLOR },
   { k: "cyclocross", label: "シクロクロス", color: CATEGORIES.cyclocross.color },
+  { k: "mtb", label: "MTB", color: CATEGORIES.mtb_xc.color },
 ];
 
 export function ExploreSection({
@@ -55,7 +56,9 @@ export function ExploreSection({
         </span>
         <h1
           style={{
-            fontSize: "clamp(24px,4.2vw,34px)",
+            // 常に1行で収める（20文字×画面幅から算出。改行させない）
+            fontSize: "clamp(14px, 4.3vw, 34px)",
+            whiteSpace: "nowrap",
             fontWeight: 800,
             letterSpacing: "-.02em",
             margin: "10px 0 0",

@@ -37,11 +37,25 @@ export default function TileMap({ events }: { events: Event[] }) {
           }}
         >
           <Popup>
-            <b>{e.name}</b>
+            <a href={`/events/${e.id}`} className="pop-title">
+              {e.name}
+            </a>
             <br />
             {catLabel(e.category)} ・ {shortDate(e.date)}
             <br />
             {e.location}
+            <span className="pop-links">
+              <a href={`/events/${e.id}`}>詳細を見る</a>
+              {(e.officialUrl ?? e.sourceUrl) && (
+                <a
+                  href={e.officialUrl ?? e.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {e.mode === "local" ? "開催元ページ" : "公式サイト"} ↗
+                </a>
+              )}
+            </span>
           </Popup>
         </CircleMarker>
       ))}

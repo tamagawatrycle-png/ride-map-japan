@@ -483,6 +483,32 @@ a {
 .leaflet-popup-content-wrapper {
   border-radius: 12px;
 }
+/* ポップアップ内リンク（詳細ページ / 公式サイト） */
+.leaflet-popup-content .pop-title {
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: none;
+}
+.leaflet-popup-content .pop-title:hover {
+  color: var(--accent);
+}
+.leaflet-popup-content .pop-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--line);
+}
+.leaflet-popup-content .pop-links a {
+  color: var(--accent) !important;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.leaflet-popup-content .pop-links a:hover {
+  text-decoration: underline;
+}
 
 /* ---------- Event cards ---------- */
 .listhead {
@@ -582,6 +608,11 @@ a {
 .badge.done {
   background: #f2f1ed;
   color: #b7b4ad;
+}
+/* エントリー開始前・締切情報なし＝「開催予定」 */
+.badge.plan {
+  background: #eef3f7;
+  color: #5a7a95;
 }
 .ev h3 {
   margin: 0;
