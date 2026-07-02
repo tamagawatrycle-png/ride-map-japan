@@ -21,12 +21,13 @@ export async function generateMetadata({
   const { id } = await params;
   const event = getEventById(id);
   if (!event) return { title: "イベントが見つかりません" };
+  const summary = (event.description ?? `${event.location}で開催。`).slice(0, 110);
   return {
     title: event.name,
-    description: event.description.slice(0, 110),
+    description: summary,
     openGraph: {
       title: `${event.name} | STEP & RIDE`,
-      description: event.description.slice(0, 110),
+      description: summary,
       type: "article",
     },
   };
@@ -43,6 +44,15 @@ export default async function EventDetailPage({
 
   const related = getRelatedEvents(event, 3);
   const left = event.entryDeadline ? daysUntil(event.entryDeadline) : null;
+
+  // 送客先（DB_SPEC.md §2）: local は取得元(source_url)、それ以外は公式(official_url)。
+  const isLocal = event.mode === "local";
+  const ctaHref = isLocal
+    ? (event.sourceUrl ?? event.officialUrl)
+    : (event.officialUrl ?? event.sourceUrl);
+  const ctaLabel = isLocal
+    ? "開催元ページを見る →"
+    : "公式サイトでエントリーする →";
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-10">
@@ -148,18 +158,20 @@ export default async function EventDetailPage({
         </section>
       )}
 
-      {/* イベント概要 */}
-      <section className="mt-8">
-        <h2 className="text-lg font-bold" style={{ color: "var(--ink)" }}>
-          イベント概要
-        </h2>
-        <p
-          className="mt-3 whitespace-pre-line text-sm leading-relaxed"
-          style={{ color: "#3a3d42" }}
-        >
-          {event.description}
-        </p>
-      </section>
+      {/* イベント概要（local は概要を持たないため出さない） */}
+      {event.description && (
+        <section className="mt-8">
+          <h2 className="text-lg font-bold" style={{ color: "var(--ink)" }}>
+            イベント概要
+          </h2>
+          <p
+            className="mt-3 whitespace-pre-line text-sm leading-relaxed"
+            style={{ color: "#3a3d42" }}
+          >
+            {event.description}
+          </p>
+        </section>
+      )}
 
       {/* エントリーCTA */}
       <section
@@ -185,18 +197,20 @@ export default async function EventDetailPage({
             )}
           </p>
         )}
-        <a
-          href={event.officialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn mt-3"
-          style={{ padding: "12px 26px", fontSize: 15 }}
-          aria-label={`${event.name} の公式サイトでエントリーする（新しいタブで開く）`}
-        >
-          公式サイトでエントリーする →
-        </a>
+        {ctaHref && (
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn mt-3"
+            style={{ padding: "12px 26px", fontSize: 15 }}
+            aria-label={`${event.name} の${isLocal ? "開催元ページを見る" : "公式サイトでエントリーする"}（新しいタブで開く）`}
+          >
+            {ctaLabel}
+          </a>
+        )}
         <p className="mt-3 text-xs" style={{ color: "var(--faint)" }}>
-          ※ 外部の公式サイトが新しいタブで開きます。最新情報は必ず公式でご確認ください。
+          ※ 外部サイトが新しいタブで開きます。最新情報は必ず開催元でご確認ください。
         </p>
       </section>
 
