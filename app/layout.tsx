@@ -17,13 +17,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_NAME = "RIDE MAP JAPAN";
+const SITE_NAME = "STEP & RIDE";
 const SITE_DESC =
-  "編集長・田渕君幸が厳選する全国サイクルイベント情報。ヒルクライム・ロードレース・グラベル・ロングライドを地図から発見。";
+  "走るきっかけを、全てのサイクリストに。全国のサイクリングイベントを地図から発見。ヒルクライム・ロードレース・グラベル・ロングライドまで、次の一本が見つかる。";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} — 日本中のライドが、ここにある。`,
+    default: `${SITE_NAME} — 走るきっかけを、全てのサイクリストに。`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESC,

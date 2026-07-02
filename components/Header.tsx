@@ -13,7 +13,7 @@ export function Header() {
               <circle cx="12" cy="10" r="2.4" />
             </svg>
           </span>
-          RIDE MAP JAPAN <small>β</small>
+          STEP &amp; RIDE <small>β</small>
         </Link>
         <nav className="rm-nav">
           <Link href="/#explore">マップ</Link>

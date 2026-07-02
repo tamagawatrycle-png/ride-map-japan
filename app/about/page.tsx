@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "サイトについて",
   description:
-    "RIDE MAP JAPAN は、全国のサイクルイベントを編集部が厳選して紹介する発見プラットフォームです。",
+    "STEP & RIDE は、全国のサイクリングイベントを地図から発見できるプラットフォームです。走るきっかけを、全てのサイクリストに。",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
         style={{ color: "#3a3d42" }}
       >
         <p>
-          <strong style={{ color: "var(--ink)" }}>RIDE MAP JAPAN</strong>{" "}
+          <strong style={{ color: "var(--ink)" }}>STEP &amp; RIDE</strong>{" "}
           は、日本全国の自転車イベント（ロードレース・ヒルクライム・グラベル・ロングライド等）を地図から一覧できる、イベント発見プラットフォームです。
         </p>
         <p>
@@ -46,7 +46,7 @@ export default function AboutPage() {
           </span>
           <div>
             <h2 className="text-lg font-bold" style={{ color: "var(--ink)" }}>
-              RIDE MAP JAPAN 編集部
+              STEP &amp; RIDE 編集部
             </h2>
             <p className="text-sm" style={{ color: "var(--sub)" }}>
               運営：TRYCLE合同会社

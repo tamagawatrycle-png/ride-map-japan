@@ -14,7 +14,7 @@ export function Footer() {
                   <circle cx="12" cy="10" r="2.4" />
                 </svg>
               </span>
-              RIDE MAP JAPAN
+              STEP &amp; RIDE
             </div>
             <div className="desc">
               すべてのサイクリストに、走るきっかけを。全国のサイクリングイベントを地図から発見できるサービス。

@@ -61,7 +61,7 @@ export function MissionBand() {
           走るきっかけを。
         </h2>
         <p>
-          初心者の最初の一歩から、レーサーの次の一戦まで。RIDE MAP JAPAN
+          初心者の最初の一歩から、レーサーの次の一戦まで。STEP &amp; RIDE
           は「走りたい」を後押しする地図です。
         </p>
       </div>

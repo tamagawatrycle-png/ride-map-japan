@@ -25,7 +25,7 @@ export async function generateMetadata({
     title: event.name,
     description: event.description.slice(0, 110),
     openGraph: {
-      title: `${event.name} | RIDE MAP JAPAN`,
+      title: `${event.name} | STEP & RIDE`,
       description: event.description.slice(0, 110),
       type: "article",
     },
@@ -132,7 +132,7 @@ export default async function EventDetailPage({
                 編集部コメント
               </h2>
               <p className="text-xs" style={{ color: "#8a5c48" }}>
-                RIDE MAP JAPAN 編集部 / TRYCLE
+                STEP &amp; RIDE 編集部 / TRYCLE
               </p>
             </div>
           </div>
