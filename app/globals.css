@@ -714,9 +714,61 @@ a {
   fill: none;
   stroke-width: 2.2;
 }
+/* 「出るかも」トグル（エントリーリマインド登録） */
+.maybe {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line2);
+  background: #fff;
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.12s;
+  flex-shrink: 0;
+}
+.maybe svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linejoin: round;
+}
+.maybe:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.maybe.on {
+  border-color: var(--accent-mid);
+  background: var(--accent-weak);
+  color: var(--accent-strong);
+}
+.maybe.on svg {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+.maybe.md {
+  padding: 11px 20px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.maybe.md svg {
+  width: 16px;
+  height: 16px;
+}
+/* カードのフッター内では 出るかも＋走ろ！ を右に寄せる */
+.ev .maybe {
+  margin-left: auto;
+}
+
 /* 「走ろ！」共有ボタン（カード右下） */
 .ev .share {
-  margin-left: auto;
+  margin-left: 8px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -795,7 +847,269 @@ a {
   }
   .ev .share {
     font-size: 11px;
-    padding: 4px 11px;
+    padding: 4px 10px;
+  }
+  .ev .maybe {
+    font-size: 10.5px;
+    padding: 3px 8px;
+    gap: 4px;
+  }
+  .ev .maybe svg {
+    width: 11px;
+    height: 11px;
+  }
+  .ev .share {
+    margin-left: 6px;
+  }
+}
+
+/* ---------- エントリーリマインド（ポップアップ） ---------- */
+.remind-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(20, 16, 12, 0.42);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
+@media (min-width: 640px) {
+  .remind-overlay {
+    align-items: center;
+  }
+}
+.remind-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  padding: 16px;
+}
+.remind-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+}
+.remind-head b {
+  font-size: 15px;
+}
+.remind-bell {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.remind-bell svg {
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.remind-close {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 9px;
+  background: var(--bg2);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.remind-close svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--sub);
+  stroke-width: 2.2;
+  fill: none;
+}
+.remind-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.remind-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.remind-list li:last-child {
+  border-bottom: none;
+}
+.remind-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  text-decoration: none;
+}
+.remind-days {
+  flex-shrink: 0;
+  min-width: 58px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-strong);
+  background: var(--accent-weak);
+  border: 1px solid var(--accent-mid);
+  border-radius: 999px;
+  padding: 4px 8px;
+}
+.remind-body {
+  min-width: 0;
+}
+.remind-body b {
+  display: block;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.remind-body small {
+  display: block;
+  font-size: 11px;
+  color: var(--sub);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.remind-remove {
+  flex-shrink: 0;
+  border: 1px solid var(--line2);
+  background: #fff;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.remind-remove:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.remind-note {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: var(--faint);
+}
+
+/* ---------- スプラッシュ（アプリ起動時のローディング画面） ---------- */
+#sr-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: linear-gradient(160deg, #2a2018 0%, #6b3418 55%, var(--accent) 130%);
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.55s ease;
+}
+#sr-splash.out {
+  opacity: 0;
+  pointer-events: none;
+}
+#sr-splash .sp-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url("/splash.jpg");
+  background-size: cover;
+  background-position: center 42%;
+  /* ゆっくり寄るケンバーンズ効果でワクワク感を出す */
+  animation: sp-zoom 2.4s ease-out forwards;
+}
+#sr-splash .sp-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 12, 8, 0.18) 0%,
+    rgba(16, 12, 8, 0.05) 40%,
+    rgba(16, 12, 8, 0.55) 100%
+  );
+}
+#sr-splash .sp-inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12vh;
+  text-align: center;
+  color: #fff;
+  animation: sp-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: 0.15s;
+}
+#sr-splash .sp-mk {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--accent);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  margin-bottom: 12px;
+}
+#sr-splash .sp-mk svg {
+  width: 26px;
+  height: 26px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.2;
+}
+#sr-splash b {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+#sr-splash p {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+@keyframes sp-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes sp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #sr-splash .sp-photo,
+  #sr-splash .sp-inner {
+    animation: none;
   }
 }
 
