@@ -1,11 +1,13 @@
 "use client";
 
 // インタラクティブ・タイル地図（Leaflet + CARTO light）。
-// 承認済みモックの #lmap 相当：橙 CircleMarker + ポップアップ（大会名/種別/日付/開催地）。
+// 承認済みモックの #lmap 相当：カテゴリ色の CircleMarker + ポップアップ（大会名/種別/日付/開催地）。
+// JBCF タグ付きは濃青リングで区別。
 
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import type { Event } from "@/lib/types";
 import { catLabel, shortDate } from "@/lib/ui";
+import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 
 export default function TileMap({ events }: { events: Event[] }) {
   return (
@@ -28,9 +30,9 @@ export default function TileMap({ events }: { events: Event[] }) {
           center={[e.lat, e.lng]}
           radius={e.featured ? 7 : 6}
           pathOptions={{
-            color: "#fff",
-            weight: 1.6,
-            fillColor: "#e9622e",
+            color: (e.tags ?? []).includes("JBCF") ? JBCF_COLOR : "#fff",
+            weight: (e.tags ?? []).includes("JBCF") ? 2.2 : 1.6,
+            fillColor: CATEGORIES[e.category].color,
             fillOpacity: 1,
           }}
         >

@@ -8,15 +8,17 @@ import type { Event } from "@/lib/types";
 import { EventCard } from "./EventCard";
 import { MapSection } from "./MapSection";
 import { matchesFilter, watchCount, type FilterKey } from "@/lib/ui";
+import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 
-const CHIPS: { k: FilterKey; label: string }[] = [
+// color: チップ先頭の色ドット（カテゴリ色分け。すべて＝ドット無し）
+const CHIPS: { k: FilterKey; label: string; color?: string }[] = [
   { k: "all", label: "すべて" },
-  { k: "hillclimb", label: "ヒルクライム" },
-  { k: "race", label: "レース" },
-  { k: "cycling", label: "ロングライド" },
-  { k: "gravel", label: "グラベル" },
-  { k: "jbcf", label: "JBCF" },
-  { k: "cyclocross", label: "シクロクロス" },
+  { k: "hillclimb", label: "ヒルクライム", color: CATEGORIES.hillclimb.color },
+  { k: "race", label: "レース", color: CATEGORIES.race.color },
+  { k: "cycling", label: "ロングライド", color: CATEGORIES.cycling.color },
+  { k: "gravel", label: "グラベル", color: CATEGORIES.gravel.color },
+  { k: "jbcf", label: "JBCF", color: JBCF_COLOR },
+  { k: "cyclocross", label: "シクロクロス", color: CATEGORIES.cyclocross.color },
 ];
 
 export function ExploreSection({
@@ -70,6 +72,7 @@ export function ExploreSection({
             className={`chip${filter === c.k ? " on" : ""}`}
             onClick={() => onFilterChange(c.k)}
           >
+            {c.color && <i className="cdot" style={{ background: c.color }} />}
             {c.label}
           </button>
         ))}

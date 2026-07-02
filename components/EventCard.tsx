@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Event } from "@/lib/types";
 import { catLabel, shortDate, watchCount, IC } from "@/lib/ui";
+import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 import { daysUntil } from "@/lib/format";
 
 // モックの badgeFor 相当：締切/開催状況からバッジを決める
@@ -63,7 +64,7 @@ export function EventCard({
     >
       <div className="row1">
         <span className="cat">
-          <i />
+          <i style={{ background: CATEGORIES[event.category].color }} />
           {catLabel(event.category)}
         </span>
         <span className={`badge ${bd.cls}`}>{bd.txt}</span>
@@ -97,7 +98,20 @@ export function EventCard({
       {event.tags && event.tags.length > 0 && (
         <div className="tags">
           {event.tags.map((t) => (
-            <span key={t}>{t}</span>
+            <span
+              key={t}
+              style={
+                t === "JBCF"
+                  ? {
+                      color: "#fff",
+                      background: JBCF_COLOR,
+                      fontWeight: 700,
+                    }
+                  : undefined
+              }
+            >
+              {t}
+            </span>
           ))}
         </div>
       )}

@@ -307,6 +307,17 @@ a {
   font-weight: 600;
   cursor: pointer;
   transition: 0.12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+/* チップ先頭のカテゴリ色ドット */
+.chip .cdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
 }
 @media (max-width: 560px) {
   .filters {
