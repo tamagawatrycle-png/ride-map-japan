@@ -22,16 +22,18 @@ export function catLabel(cat: EventCategory): string {
   return CATEGORIES[cat].label;
 }
 
-// Explore フィルターのキー：全カテゴリ + "all" + "jbcf"（タグ絞り込み）
-export type FilterKey = EventCategory | "all" | "jbcf";
+// Explore フィルターのキー：全カテゴリ + "all" + "jbcf"（タグ絞り込み）+ "mtb"（XC/DH横断）
+export type FilterKey = EventCategory | "all" | "jbcf" | "mtb";
 
 // 共有フィルター述語（モックの inFilter 相当）
 //   all  → 常に true
 //   jbcf → tags に "JBCF" を含む（カテゴリではなくタグで絞る）
+//   mtb  → mtb_xc / mtb_dh の両カテゴリ（マウンテンバイク横断）
 //   その他 → category === key
 export function matchesFilter(e: Event, key: FilterKey): boolean {
   if (key === "all") return true;
   if (key === "jbcf") return (e.tags ?? []).includes("JBCF");
+  if (key === "mtb") return e.category === "mtb_xc" || e.category === "mtb_dh";
   return e.category === key;
 }
 

@@ -6,16 +6,20 @@ import { catLabel, shortDate, watchCount, IC } from "@/lib/ui";
 import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 import { daysUntil } from "@/lib/format";
 
-// モックの badgeFor 相当：締切/開催状況からバッジを決める
+// モックの badgeFor 相当：締切/開催状況からバッジを決める。
+// 締切情報が無いイベントは「エントリー受付中」と断定せず「開催予定」を出す
+// （エントリー開始前の大会をスケジュールとして載せるため）。
 function badgeFor(ev: Event): { cls: string; txt: string } {
   const today = new Date();
-  const eventPast = daysUntil(ev.date, today) < 0;
+  const eventPast = daysUntil(ev.dateEnd ?? ev.date, today) < 0;
   if (eventPast) return { cls: "done", txt: "今季終了" };
   if (ev.entryDeadline) {
     const days = daysUntil(ev.entryDeadline, today);
     if (days >= 0 && days <= 45) return { cls: "soon", txt: `締切まで${days}日` };
+    if (days > 45) return { cls: "open", txt: "エントリー受付中" };
+    return { cls: "done", txt: "エントリー終了" }; // 締切超過だが開催前
   }
-  return { cls: "open", txt: "エントリー受付中" };
+  return { cls: "plan", txt: "開催予定" };
 }
 
 function Svg({ d }: { d: string }) {
