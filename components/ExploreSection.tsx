@@ -6,9 +6,10 @@
 
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event } from "@/lib/types";
 import { EventCard } from "./EventCard";
 import { daysUntil } from "@/lib/format";
+import { matchesFilter, type FilterKey } from "@/lib/ui";
 
 // 地図は SSR 不可（fetch + getBBox が window/DOM 依存）→ client 内で ssr:false
 const JapanMap = dynamic(() => import("./JapanMap"), {
@@ -28,12 +29,14 @@ const JapanMap = dynamic(() => import("./JapanMap"), {
   ),
 });
 
-const CHIPS: { k: EventCategory | "all"; label: string }[] = [
+const CHIPS: { k: FilterKey; label: string }[] = [
   { k: "all", label: "すべて" },
   { k: "hillclimb", label: "ヒルクライム" },
   { k: "race", label: "レース" },
   { k: "cycling", label: "ロングライド" },
   { k: "gravel", label: "グラベル" },
+  { k: "jbcf", label: "JBCF" },
+  { k: "cyclocross", label: "シクロクロス" },
 ];
 
 export function ExploreSection({
@@ -42,13 +45,13 @@ export function ExploreSection({
   onFilterChange,
 }: {
   events: Event[];
-  filter: EventCategory | "all";
-  onFilterChange: (k: EventCategory | "all") => void;
+  filter: FilterKey;
+  onFilterChange: (k: FilterKey) => void;
 }) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const filtered = useMemo(
-    () => events.filter((e) => filter === "all" || e.category === filter),
+    () => events.filter((e) => matchesFilter(e, filter)),
     [events, filter],
   );
 
@@ -63,8 +66,28 @@ export function ExploreSection({
   }, [filtered]);
 
   return (
-    <section id="explore" className="wrap" style={{ paddingBottom: 56 }}>
-      <div className="filters">
+    <section
+      id="explore"
+      className="wrap"
+      style={{ paddingTop: 20, paddingBottom: 48 }}
+    >
+      <div style={{ padding: "4px 0 14px", textAlign: "center" }}>
+        <span className="kicker" style={{ justifyContent: "center" }}>
+          全国のサイクリングイベント発見マップ
+        </span>
+        <h1
+          style={{
+            fontSize: "clamp(24px,4.2vw,34px)",
+            fontWeight: 800,
+            letterSpacing: "-.02em",
+            margin: "10px 0 0",
+          }}
+        >
+          すべてのサイクリストに、走るきっかけを。
+        </h1>
+      </div>
+
+      <div className="filters" style={{ justifyContent: "center" }}>
         {CHIPS.map((c) => (
           <button
             key={c.k}
@@ -76,30 +99,26 @@ export function ExploreSection({
         ))}
       </div>
 
-      <div className="explore-grid">
-        <div className="mapwrap">
-          <JapanMap
-            events={filtered}
-            activeId={activeId}
+      <div
+        className="mapwrap"
+        style={{ maxWidth: 600, margin: "2px auto 0", position: "static" }}
+      >
+        <JapanMap events={filtered} activeId={activeId} onHover={setActiveId} />
+      </div>
+
+      <div className="listhead" style={{ marginTop: 36 }}>
+        <span className="k">Events</span>
+        <span className="k tabnum">{sorted.length}件</span>
+      </div>
+      <div className="list evgrid">
+        {sorted.map((e) => (
+          <EventCard
+            key={e.id}
+            event={e}
+            active={activeId === e.id}
             onHover={setActiveId}
           />
-        </div>
-        <div>
-          <div className="listhead">
-            <span className="k">Events</span>
-            <span className="k tabnum">{sorted.length}件</span>
-          </div>
-          <div className="list">
-            {sorted.map((e) => (
-              <EventCard
-                key={e.id}
-                event={e}
-                active={activeId === e.id}
-                onHover={setActiveId}
-              />
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

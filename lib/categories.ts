@@ -13,6 +13,7 @@ export const CATEGORIES: Record<EventCategory, CategoryMeta> = {
   cycling: { label: "ロングライド", color: "#60f0b0" },
   fondo: { label: "グランフォンド", color: "#a060f0" },
   enduro: { label: "耐久レース", color: "#f060c0" },
+  cyclocross: { label: "シクロクロス", color: "#8a9a5b" },
 };
 
 export const CATEGORY_ORDER: EventCategory[] = [
@@ -22,6 +23,7 @@ export const CATEGORY_ORDER: EventCategory[] = [
   "cycling",
   "fondo",
   "enduro",
+  "cyclocross",
 ];
 
 export const DIFFICULTY_LABELS: Record<Difficulty, string> = {

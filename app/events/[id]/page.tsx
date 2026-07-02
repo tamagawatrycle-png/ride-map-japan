@@ -141,7 +141,8 @@ export default async function EventDetailPage({
           </p>
           {event.editorAttended && (
             <p className="mt-2 text-xs" style={{ color: "var(--accent-strong)" }}>
-              ✓ この大会に出走したことがあります
+              <svg viewBox="0 0 24 24" width="13" height="13" style={{ stroke: "currentColor", fill: "none", strokeWidth: 2.6, verticalAlign: "-1px", marginRight: 5 }}><path d="M5 12l5 5L20 6" /></svg>
+              この大会に出走したことがあります
             </p>
           )}
         </section>

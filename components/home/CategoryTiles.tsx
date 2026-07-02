@@ -1,9 +1,10 @@
 "use client";
 
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event } from "@/lib/types";
+import { matchesFilter, type FilterKey } from "@/lib/ui";
 
 // 種別タイル（件数付き）。クリックで Explore の絞り込みを設定しスクロール。
-type TileDef = { k: EventCategory; label: string; icon: string };
+type TileDef = { k: FilterKey; label: string; icon: string };
 
 const TILE_DEFS: TileDef[] = [
   { k: "hillclimb", label: "ヒルクライム", icon: '<path d="M3 20l6-11 4 6 2-3 6 8z"/>' },
@@ -17,6 +18,16 @@ const TILE_DEFS: TileDef[] = [
     k: "gravel",
     label: "グラベル",
     icon: '<path d="M3 18c3 0 3-3 6-3s3 3 6 3 3-3 6-3"/><circle cx="7" cy="9" r="1"/><circle cx="14" cy="7" r="1"/>',
+  },
+  {
+    k: "jbcf",
+    label: "JBCF",
+    icon: '<path d="M6 21V3M6 4h11l-2.5 3.5L17 11H6"/>',
+  },
+  {
+    k: "cyclocross",
+    label: "シクロクロス",
+    icon: '<path d="M4 19h16"/><circle cx="7.5" cy="15" r="2.3"/><circle cx="16.5" cy="15" r="2.3"/><path d="M7.5 15l3-5.5h4l3 5.5M10 9.5h4"/>',
   },
   {
     k: "fondo",
@@ -35,7 +46,7 @@ export function CategoryTiles({
   onPick,
 }: {
   events: Event[];
-  onPick: (k: EventCategory) => void;
+  onPick: (k: FilterKey) => void;
 }) {
   return (
     <section id="cats" className="sec alt">
@@ -47,7 +58,7 @@ export function CategoryTiles({
         </div>
         <div className="tiles">
           {TILE_DEFS.map((c) => {
-            const n = events.filter((e) => e.category === c.k).length;
+            const n = events.filter((e) => matchesFilter(e, c.k)).length;
             return (
               <button key={c.k} className="tile" onClick={() => onPick(c.k)}>
                 <div className="ico">

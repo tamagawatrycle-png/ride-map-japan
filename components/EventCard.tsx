@@ -49,7 +49,7 @@ export function EventCard({
       </div>
       <h3>
         {event.name}
-        {event.featured && <span className="pick">★ pick</span>}
+        {event.featured && <span className="pick">編集部pick</span>}
       </h3>
       <div className="meta">
         <span>

@@ -20,6 +20,19 @@ export function catLabel(cat: EventCategory): string {
   return CATEGORIES[cat].label;
 }
 
+// Explore フィルターのキー：全カテゴリ + "all" + "jbcf"（タグ絞り込み）
+export type FilterKey = EventCategory | "all" | "jbcf";
+
+// 共有フィルター述語（モックの inFilter 相当）
+//   all  → 常に true
+//   jbcf → tags に "JBCF" を含む（カテゴリではなくタグで絞る）
+//   その他 → category === key
+export function matchesFilter(e: Event, key: FilterKey): boolean {
+  if (key === "all") return true;
+  if (key === "jbcf") return (e.tags ?? []).includes("JBCF");
+  return e.category === key;
+}
+
 // "2026-06-07" → "6/7"（モックの fdate 相当・短縮表示）
 export function shortDate(iso: string): string {
   const [, m, d] = iso.split("-").map(Number);

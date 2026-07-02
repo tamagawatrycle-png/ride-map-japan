@@ -423,6 +423,21 @@ a {
   flex-direction: column;
   gap: 11px;
 }
+.evgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 900px) {
+  .evgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .evgrid {
+    grid-template-columns: 1fr;
+  }
+}
 .ev {
   background: #fff;
   border: 1px solid var(--line);

@@ -7,7 +7,8 @@ export type EventCategory =
   | "gravel" // グラベル
   | "cycling" // ロングライド
   | "fondo" // グランフォンド
-  | "enduro"; // 耐久レース
+  | "enduro" // 耐久レース
+  | "cyclocross"; // シクロクロス
 
 export type Difficulty = "beginner" | "intermediate" | "advanced";
 
