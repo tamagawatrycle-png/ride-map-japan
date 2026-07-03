@@ -7,7 +7,7 @@
    ============================================================ */
 :root {
   --bg: #ffffff;
-  --bg2: #f7f6f3;
+  --bg2: #f8f5ec; /* 生成り（familyclub参考の温かいクリーム） */
   --ink: #1a1b1d;
   --sub: #6b6e73;
   --faint: #9a9da2;
@@ -30,7 +30,7 @@
 /* Tailwind v4 テーマトークン（ユーティリティ用） */
 @theme inline {
   --color-bg: #ffffff;
-  --color-bg2: #f7f6f3;
+  --color-bg2: #f8f5ec;
   --color-ink: #1a1b1d;
   --color-sub: #6b6e73;
   --color-faint: #9a9da2;
@@ -78,6 +78,7 @@ a {
 }
 .tabnum {
   font-variant-numeric: tabular-nums;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 .kicker {
   font-family: var(--font-inter), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -530,20 +531,11 @@ a {
   flex-direction: column;
   gap: 11px;
 }
+/* イベントグリッドは全幅で2列（表示件数はホーム側で 2列×5行=10件 に制限） */
 .evgrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-@media (max-width: 1100px) {
-  .evgrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 900px) {
-  .evgrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 /* モバイルでも2列表示（カードのコンパクト化は .ev 定義の後で指定） */
 @media (max-width: 560px) {
@@ -1557,27 +1549,47 @@ a {
   }
 }
 
-/* ---------- Sections ---------- */
+/* ---------- Sections ----------
+   familyclub.jp 参考の贅沢余白＋中央見出し。区切りは線ではなく交互背景で。 */
 .sec {
-  padding: 56px 0;
+  padding: 88px 0;
   border-top: 1px solid var(--line);
 }
 .sec.alt {
   background: var(--bg2);
 }
 .sec-head {
-  margin-bottom: 26px;
+  margin-bottom: 34px;
+  text-align: center;
 }
 .sec-head h2 {
-  margin: 8px 0 0;
-  font-size: 24px;
+  margin: 10px 0 0;
+  font-size: 25px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.08em;
+}
+/* 見出し下の差し色ライン（familyclubの飾りラインのオレンジ版） */
+.sec-head h2::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+  margin: 14px auto 0;
 }
 .sec-head p {
-  margin: 6px 0 0;
+  margin: 12px 0 0;
   color: var(--sub);
   font-size: 14px;
+}
+@media (max-width: 640px) {
+  .sec {
+    padding: 56px 0;
+  }
+  .sec-head h2 {
+    font-size: 21px;
+  }
 }
 
 /* ---------- Category tiles ---------- */

@@ -4,6 +4,7 @@
 // 地図はズーム/パン可能な Leaflet 版（MapSection）をフロントに配置。フィルターでマーカーも同期。
 
 import { useMemo } from "react";
+import Link from "next/link";
 import type { Event } from "@/lib/types";
 import { EventCard } from "./EventCard";
 import { MapSection } from "./MapSection";
@@ -92,11 +93,23 @@ export function ExploreSection({
         <span className="k">Events</span>
         <span className="k tabnum">{sorted.length}件</span>
       </div>
+      {/* ホームは 2列×5行（10件）まで。全件はイベント一覧ページへ */}
       <div className="list evgrid">
-        {sorted.map((e) => (
+        {sorted.slice(0, 10).map((e) => (
           <EventCard key={e.id} event={e} />
         ))}
       </div>
+      {sorted.length > 10 && (
+        <div style={{ textAlign: "center", marginTop: 22 }}>
+          <Link
+            className="btn"
+            href="/events"
+            style={{ padding: "12px 28px", fontSize: 14 }}
+          >
+            すべてのイベントを見る（{sorted.length}件）
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
