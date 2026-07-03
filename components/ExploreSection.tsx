@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import type { Event } from "@/lib/types";
 import { EventCard } from "./EventCard";
 import { MapSection } from "./MapSection";
+import { Pickup } from "./Pickup";
 import { matchesFilter, watchCount, type FilterKey } from "@/lib/ui";
 import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
 
@@ -67,6 +68,9 @@ export function ExploreSection({
           すべてのサイクリストに、走るきっかけを。
         </h1>
       </div>
+
+      {/* あなたへのピックアップ（プロフィール回答済みの時だけ表示） */}
+      <Pickup events={events} />
 
       <div className="filters" style={{ justifyContent: "center" }}>
         {CHIPS.map((c) => (

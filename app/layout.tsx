@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { EntryReminder } from "@/components/EntryReminder";
 import { Splash } from "@/components/Splash";
+import { Onboarding } from "@/components/Onboarding";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -51,6 +52,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <EntryReminder />
+        <Onboarding />
       </body>
     </html>
   );

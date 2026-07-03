@@ -24,6 +24,12 @@ export function Header() {
         </nav>
         <div className="right">
           <FootprintCounter />
+          <Link className="me-link" href="/me" aria-label="マイページ">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.4" />
+              <path d="M5 20c1.2-3.6 3.8-5.4 7-5.4s5.8 1.8 7 5.4" />
+            </svg>
+          </Link>
           <Link className="btn sm" href="/events">
             イベント一覧
           </Link>
