@@ -28,7 +28,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "mt富士ヒルクライム"
+  "nameNormalized": "mt富士ヒルクライム",
+  "thumb": "https://fujihc.jp/wp-content/uploads/2025/12/ogp-2026.jpg"
  },
  {
   "id": "norikura-hillclimb-2026",
@@ -90,7 +91,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "ツールドおきなわ2026"
+  "nameNormalized": "ツールドおきなわ2026",
+  "thumb": "http://www.tour-de-okinawa.jp/img/TourDeOkinawaOGP.png"
  },
  {
   "id": "chichibunomiya-cup-2026",
@@ -119,7 +121,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "kanto",
-  "nameNormalized": "秩父宮杯サイクルロードレース"
+  "nameNormalized": "秩父宮杯サイクルロードレース",
+  "thumb": "https://www.sportsentry.ne.jp/tano/custom/common/image/ogp/00_sportsentry_ogp.png"
  },
  {
   "id": "cycling-shimanami-2026",
@@ -151,7 +154,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "サイクリングしまなみ2026"
+  "nameNormalized": "サイクリングしまなみ2026",
+  "thumb": "https://cycling-shimanami.jp/wp/wp-content/uploads/2026/02/ogp.jpg"
  },
  {
   "id": "minami-alps-cycle-adventure-2026",
@@ -246,7 +250,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "北海道岩見沢サイクリング"
+  "nameNormalized": "北海道岩見沢サイクリング",
+  "thumb": "https://www.sportsentry.ne.jp/tano/custom/common/image/ogp/00_sportsentry_ogp.png"
  },
  {
   "id": "tour-de-utsukushigahara-2026",
@@ -335,7 +340,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "大町温泉郷ロードレース"
+  "nameNormalized": "大町温泉郷ロードレース",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-hsr-kyushu-crit-2026",
@@ -361,7 +367,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "hsr九州クリテリウム"
+  "nameNormalized": "hsr九州クリテリウム",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-nagawa-tt-2026",
@@ -387,7 +394,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "信州ながわまちタイムトライアル"
+  "nameNormalized": "信州ながわまちタイムトライアル",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-maishima-crit-2026",
@@ -413,7 +421,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "舞洲クリテリウム"
+  "nameNormalized": "舞洲クリテリウム",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-oboshiyama-hc-2026",
@@ -440,7 +449,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "大星山ヒルクライム"
+  "nameNormalized": "大星山ヒルクライム",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-shunan-crit-2026",
@@ -466,7 +476,8 @@
   "mode": "main",
   "linkTarget": "official",
   "regionTag": "national",
-  "nameNormalized": "しゅうなんクリテリウム"
+  "nameNormalized": "しゅうなんクリテリウム",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "motegi-enduro-aki-2026",
@@ -493,7 +504,8 @@
   "regionTag": "kanto",
   "nameNormalized": "もてぎ秋のサイクルエンデューロ2026",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://motegi7h.jp/aki/fb_ogp_img.jpg"
  },
  {
   "id": "kansai-cx-biwako-gp-2026",
@@ -519,7 +531,8 @@
   "nameNormalized": "関西シクロクロス琵琶湖グランプリ2026",
   "createdAt": "2026-07-02",
   "updatedAt": "2026-07-02",
-  "dateEnd": "2026-11-23"
+  "dateEnd": "2026-11-23",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "tokai-cx-wnp-2026",
@@ -546,7 +559,8 @@
   "nameNormalized": "東海シクロクロスワイルドネイチャープラザjcx",
   "createdAt": "2026-07-02",
   "updatedAt": "2026-07-02",
-  "dateEnd": "2026-11-23"
+  "dateEnd": "2026-11-23",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "jcf-cx-championships-2026",
@@ -571,7 +585,8 @@
   "regionTag": "national",
   "nameNormalized": "全日本選手権自転車競技大会シクロクロス20262027",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "niseko-gravel-2026",
@@ -622,7 +637,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "momiji-cx-takata-1-2026",
@@ -648,7 +664,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "ibaraki-cx-tsuchiura-2026",
@@ -673,7 +690,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cxm-kamiyamada-2026",
@@ -698,7 +716,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://shinshu-cyclocross.com/wp-content/uploads/ccm_logo_300_60.png"
  },
  {
   "id": "momiji-cx-kure-2026",
@@ -723,7 +742,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "shonan-cx-kaisei-2026",
@@ -748,7 +768,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cxm-takabocchi-2026",
@@ -774,7 +795,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://shinshu-cyclocross.com/wp-content/uploads/ccm_logo_300_60.png"
  },
  {
   "id": "tohoku-cx-watari-2026",
@@ -798,7 +820,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "kansai-cx-katsuragawa-2026",
@@ -822,7 +845,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "cxm-iiyama-2026",
@@ -848,7 +872,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://shinshu-cyclocross.com/wp-content/uploads/ccm_logo_300_60.png"
  },
  {
   "id": "kansai-cx-miyama-2026",
@@ -872,7 +897,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "yukiguni-cx-2026",
@@ -897,7 +923,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "kansai-cx-nishikinohama-2026",
@@ -922,7 +949,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "matsubushi-cx-2026",
@@ -947,7 +975,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "momiji-cx-takata-4-2026",
@@ -971,7 +1000,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "tohoku-cx-inawashiro-2026",
@@ -996,7 +1026,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cx-showa-2026",
@@ -1021,7 +1052,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cxm-tirol-2026",
@@ -1046,7 +1078,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://shinshu-cyclocross.com/wp-content/uploads/ccm_logo_300_60.png"
  },
  {
   "id": "gotemba-cx-2026",
@@ -1071,7 +1104,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cx-toyama-2026",
@@ -1095,7 +1129,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "kyushu-cx-ashiya-2026",
@@ -1119,7 +1154,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "utsunomiya-cx-2026",
@@ -1146,7 +1182,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "tokai-cx-2-kettar-2026",
@@ -1170,7 +1207,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "kansai-cx-makino-2026",
@@ -1194,7 +1232,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "yamaguchi-cx-shimonoseki-2026",
@@ -1218,7 +1257,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "inagi-cross-2026",
@@ -1243,7 +1283,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "cxm-minamishinshu-2026",
@@ -1268,7 +1309,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://shinshu-cyclocross.com/wp-content/uploads/ccm_logo_300_60.png"
  },
  {
   "id": "kansai-cx-shinodayama-2026",
@@ -1292,7 +1334,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "ibaraki-cx-shirosato-2026",
@@ -1317,7 +1360,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "tokai-cx-3-ikeda-2026",
@@ -1342,7 +1386,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://www.cyclocross.jp/img/cmn/ogp.png"
  },
  {
   "id": "kansai-cx-gobo-2026",
@@ -1367,7 +1412,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://cdn.image.st-hatena.com/image/scale/5d361d9a6c4d7bb157160049386e28c4159988cb/backend=imagemagick;enlarge=0;height=1000;version=1;width=1200/https%3A%2F%2Fcdn.user.blog.st-hatena.com%2Fdefault_entry_og_image%2F40582967%2F1687312612955273"
  },
  {
   "id": "jbcf-higashinihon-track-2026",
@@ -1392,7 +1438,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-nishinihon-track-2026",
@@ -1416,7 +1463,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-maishima-tt-2026",
@@ -1441,7 +1489,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-nishigo-tt-2026",
@@ -1467,7 +1516,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-nishigo-road-2026",
@@ -1492,7 +1542,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-asosan-hc-2026",
@@ -1518,7 +1569,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-minamiuonuma-road-2026",
@@ -1542,7 +1594,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-minamiuonuma-crit-2026",
@@ -1567,7 +1620,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-zennihon-track-2026",
@@ -1593,7 +1647,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-fukui-2026",
@@ -1621,7 +1676,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-kakko-hc-2026",
@@ -1647,7 +1703,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "jbcf-urayasu-crit-2026",
@@ -1673,7 +1730,8 @@
   ],
   "confidence": "medium",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jbcfroad.jp/img/jbcf_1200x630.png"
  },
  {
   "id": "cj-hiyama-2026",
@@ -1699,7 +1757,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://mtb-l.jp/wp/wp-content/uploads/2016/01/coupedujapanMTB_logo_a02.jpg"
  },
  {
   "id": "kenda-dh4-hakuba-2026",
@@ -1725,7 +1784,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "jcf-mtb-championships-2026",
@@ -1752,7 +1812,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "joc-junior-olympic-mtb-2026",
@@ -1779,7 +1840,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "kenda-dh5-niseko-2026",
@@ -1806,7 +1868,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "kenda-dh6-fujimi-2026",
@@ -1833,7 +1896,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://jcf.or.jp/wp2012/wp-content/uploads/2020/09/jcf_ogp.png"
  },
  {
   "id": "cj-kyoto-yubune-2026",
@@ -1860,7 +1924,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://mtb-l.jp/wp/wp-content/uploads/2016/01/coupedujapanMTB_logo_a02.jpg"
  },
  {
   "id": "cj-misaka-2026",
@@ -1887,7 +1952,8 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://mtb-l.jp/wp/wp-content/uploads/2016/01/coupedujapanMTB_logo_a02.jpg"
  },
  {
   "id": "cj-yoshimuta-2026",
@@ -1914,6 +1980,7 @@
   ],
   "confidence": "high",
   "createdAt": "2026-07-02",
-  "updatedAt": "2026-07-02"
+  "updatedAt": "2026-07-02",
+  "thumb": "https://mtb-l.jp/wp/wp-content/uploads/2016/01/coupedujapanMTB_logo_a02.jpg"
  }
 ]

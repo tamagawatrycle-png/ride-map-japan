@@ -555,6 +555,39 @@ a {
   cursor: pointer;
   transition: 0.14s;
   display: block;
+  overflow: hidden; /* サムネイルを角丸に沿ってクリップ */
+}
+/* サムネイル（公式ページの og:image をホットリンク参照） */
+.ev-thumb {
+  margin: -16px -16px 13px;
+  aspect-ratio: 16 / 9;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.ev-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.ev:hover .ev-thumb img {
+  transform: scale(1.04);
+}
+/* 画像なし/取得失敗時のプレースホルダー（カテゴリ色＋自転車シルエット） */
+.ev-thumb.ph {
+  display: grid;
+  place-items: center;
+}
+.ev-thumb.ph svg {
+  width: 64px;
+  height: auto;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.75;
 }
 .ev:hover,
 .ev.active {
@@ -792,6 +825,9 @@ a {
   .ev {
     padding: 12px;
     border-radius: 13px;
+  }
+  .ev-thumb {
+    margin: -12px -12px 10px;
   }
   .ev .row1 {
     gap: 4px 6px;
@@ -1377,13 +1413,14 @@ a {
   }
 }
 
-/* ---------- スプラッシュ（アプリ起動時のローディング画面） ---------- */
+/* ---------- スプラッシュ（タイポグラフィ主体のミニマル・オープニング） ----------
+   白背景 → 行ごとのマスクリビール → ルートライン＋走るドット → 白いページへシームレスに溶ける */
 #sr-splash {
   position: fixed;
   inset: 0;
   /* 最前面（Leaflet 800 / リマインド 900 / オンボーディング 950 より上） */
   z-index: 1000;
-  background: linear-gradient(160deg, #2a2018 0%, #6b3418 55%, var(--accent) 130%);
+  background: #fff;
   overflow: hidden;
   opacity: 1;
   transition: opacity 0.45s ease;
@@ -1392,159 +1429,121 @@ a {
   opacity: 0;
   pointer-events: none;
 }
-#sr-splash .sp-photo {
+#sr-splash .sp2 {
   position: absolute;
   inset: 0;
-  background-image: url("/splash.jpg");
-  background-size: cover;
-  background-position: center 42%;
-  /* ゆっくり寄るケンバーンズ効果でワクワク感を出す */
-  animation: sp-zoom 2.6s ease-out forwards;
-}
-#sr-splash .sp-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(16, 12, 8, 0.18) 0%,
-    rgba(16, 12, 8, 0.05) 40%,
-    rgba(16, 12, 8, 0.55) 100%
-  );
-}
-#sr-splash .sp-inner {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
   text-align: center;
-  color: #fff;
-  animation: sp-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  animation-delay: 0.05s;
+  padding: 24px;
+  transition: transform 0.45s ease;
 }
-#sr-splash .sp-mk {
-  display: inline-grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 13px;
-  background: var(--accent);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
-  margin-bottom: 12px;
+#sr-splash.out .sp2 {
+  transform: translateY(-10px);
 }
-#sr-splash .sp-mk svg {
-  width: 26px;
-  height: 26px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 2.2;
+/* ブランド名（Inter・字間が広がりながら現れる） */
+#sr-splash .sp2-kicker {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em; /* 字間ぶんの視覚センター補正 */
+  opacity: 0;
+  animation: sp2-kicker 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s forwards;
 }
-#sr-splash b {
+/* ミッション：行ごとのマスクリビール */
+#sr-splash .sp2-mission {
+  margin-top: 18px;
+}
+#sr-splash .sp2-line {
   display: block;
-  font-size: 24px;
+  overflow: hidden;
+  padding: 0.08em 0;
+}
+#sr-splash .sp2-t {
+  display: inline-block;
+  font-size: clamp(23px, 6vw, 44px);
   font-weight: 800;
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
-}
-#sr-splash p {
-  margin: 8px 0 0;
-  font-size: 13.5px;
-  font-weight: 600;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.3;
+  color: var(--ink);
+  transform: translateY(115%);
+  animation: sp2-rise 0.75s cubic-bezier(0.16, 0.8, 0.24, 1) forwards;
 }
-@keyframes sp-zoom {
-  from {
-    transform: scale(1.1) translateY(6px);
-  }
-  to {
-    transform: scale(1) translateY(0);
-  }
+#sr-splash .sp2-t1 {
+  animation-delay: 0.3s;
 }
-@keyframes sp-rise {
+#sr-splash .sp2-t2 {
+  animation-delay: 0.48s;
+}
+#sr-splash .sp2-t i {
+  font-style: normal;
+  color: var(--accent);
+}
+/* ルートライン：左から引かれ、オレンジのドットが走り抜ける */
+#sr-splash .sp2-route {
+  position: relative;
+  width: min(260px, 62vw);
+  height: 2px;
+  margin-top: 34px;
+  background: var(--line2);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: sp2-draw 0.55s ease-out 0.95s forwards;
+}
+#sr-splash .sp2-route i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  animation: sp2-dot 0.85s cubic-bezier(0.5, 0.05, 0.45, 1) 1.15s forwards;
+}
+@keyframes sp2-kicker {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    letter-spacing: 0.2em;
   }
   to {
     opacity: 1;
+    letter-spacing: 0.42em;
+  }
+}
+@keyframes sp2-rise {
+  to {
     transform: translateY(0);
   }
 }
-
-/* ロードライン（左から引かれる） */
-#sr-splash .sp-road {
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  bottom: 33vh;
-  height: 2px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.25);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: sp-roaddraw 0.7s ease-out 0.1s forwards;
-}
-/* 走り抜けるロードバイク */
-#sr-splash .sp-rider {
-  position: absolute;
-  bottom: calc(33vh + 3px);
-  left: 0;
-  width: 92px;
-  transform: translateX(-120px);
-  animation: sp-ride 2s cubic-bezier(0.35, 0.05, 0.55, 1) 0.15s forwards;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-}
-#sr-splash .sp-rider svg {
-  width: 100%;
-  height: auto;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-#sr-splash .sp-rider .wh {
-  animation: sp-spin 0.55s linear infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-#sr-splash .sp-rider .wh path {
-  stroke-width: 1.6;
-  opacity: 0.85;
-}
-#sr-splash .sp-rider .fr {
-  stroke: var(--accent);
-  stroke-width: 3.4;
-}
-@keyframes sp-ride {
-  to {
-    transform: translateX(calc(100vw + 140px));
-  }
-}
-@keyframes sp-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes sp-roaddraw {
+@keyframes sp2-draw {
   to {
     transform: scaleX(1);
   }
 }
+@keyframes sp2-dot {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  #sr-splash .sp-photo,
-  #sr-splash .sp-inner,
-  #sr-splash .sp-road,
-  #sr-splash .sp-rider,
-  #sr-splash .sp-rider .wh {
+  #sr-splash .sp2-kicker,
+  #sr-splash .sp2-t,
+  #sr-splash .sp2-route,
+  #sr-splash .sp2-route i {
     animation: none;
-  }
-  #sr-splash .sp-rider {
-    display: none;
-  }
-  #sr-splash .sp-road {
+    opacity: 1;
     transform: none;
   }
 }

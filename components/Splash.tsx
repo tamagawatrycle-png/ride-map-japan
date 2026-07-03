@@ -39,40 +39,25 @@ export function Splash() {
 
   if (phase === "init" || phase === "gone") return null;
 
+  // タイポグラフィ主体のミニマル・オープニング。
+  // 白背景 → 行ごとのマスクリビール → ルートライン＋走るドット → 白いページへ溶ける。
   return (
     <div id="sr-splash" className={phase === "out" ? "out" : ""} aria-hidden="true">
-      <div className="sp-photo" />
-
-      {/* 走り抜けるロードバイク（ホイール回転付き）＋ロードライン */}
-      <div className="sp-road" />
-      <div className="sp-rider">
-        <svg viewBox="0 0 120 74">
-          {/* 後輪・前輪（スポークは .wh で回転） */}
-          <g className="wh">
-            <circle cx="26" cy="52" r="16" />
-            <path d="M26 36v32M10 52h32M14.7 40.7l22.6 22.6M14.7 63.3l22.6-22.6" />
-          </g>
-          <g className="wh">
-            <circle cx="94" cy="52" r="16" />
-            <path d="M94 36v32M78 52h32M82.7 40.7l22.6 22.6M82.7 63.3l22.6-22.6" />
-          </g>
-          {/* フレーム・ハンドル・サドル */}
-          <path
-            className="fr"
-            d="M26 52 L46 26 L80 26 L94 52 M46 26 L58 52 L80 26 M58 52 L26 52 M46 26 L44 19 M38 19 L52 19 M80 26 L84 17 M84 17 L93 17"
-          />
-        </svg>
-      </div>
-
-      <div className="sp-inner">
-        <span className="sp-mk">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" />
-            <circle cx="12" cy="10" r="2.4" />
-          </svg>
-        </span>
-        <b>STEP &amp; RIDE</b>
-        <p>すべてのサイクリストに、走るきっかけを。</p>
+      <div className="sp2">
+        <span className="sp2-kicker">STEP &amp; RIDE</span>
+        <div className="sp2-mission">
+          <span className="sp2-line">
+            <span className="sp2-t sp2-t1">すべてのサイクリストに、</span>
+          </span>
+          <span className="sp2-line">
+            <span className="sp2-t sp2-t2">
+              走るきっかけを<i>。</i>
+            </span>
+          </span>
+        </div>
+        <div className="sp2-route">
+          <i />
+        </div>
       </div>
     </div>
   );

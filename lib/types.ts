@@ -53,6 +53,7 @@ export type Event = {
   editorAttended?: boolean; // 田渕が出走経験あり
   officialUrl?: string; // 公式サイトURL（main の送客先）
   sourceUrl?: string; // 取得元ページ（local の送客先）
+  thumb?: string; // サムネイル画像URL（公式ページの og:image をホットリンク参照。画像は保存しない）
   linkTarget?: LinkTarget; // 既定は main→official / local→source
   sourceId?: string; // sources.json のどのソース由来か
   tags?: string[]; // 自由タグ 例: ["世界遺産", "グルメ充実"]

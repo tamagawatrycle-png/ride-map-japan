@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import type { Event } from "@/lib/types";
 import { catLabel, shortDate, watchCount, IC } from "@/lib/ui";
 import { CATEGORIES, JBCF_COLOR } from "@/lib/categories";
@@ -50,6 +51,43 @@ async function shareRide(ev: Event) {
   }
 }
 
+// サムネイル：公式ページの og:image をホットリンク参照。
+// 読み込み失敗（ホットリンク拒否/404）時はカテゴリ色のプレースホルダーに切替。
+function Thumb({ event }: { event: Event }) {
+  const [broken, setBroken] = useState(false);
+  const color = CATEGORIES[event.category].color;
+  if (!event.thumb || broken) {
+    return (
+      <div
+        className="ev-thumb ph"
+        style={{
+          background: `linear-gradient(135deg, ${color}26 0%, ${color}59 100%)`,
+        }}
+        aria-hidden
+      >
+        <svg viewBox="0 0 120 74" style={{ stroke: color }}>
+          <circle cx="26" cy="52" r="16" />
+          <circle cx="94" cy="52" r="16" />
+          <path d="M26 52 L46 26 L80 26 L94 52 M46 26 L58 52 L80 26 M58 52 L26 52 M46 26 L44 19 M38 19 L52 19 M80 26 L84 17 M84 17 L93 17" />
+        </svg>
+      </div>
+    );
+  }
+  return (
+    <div className="ev-thumb">
+      {/* 外部URL直参照のため next/image は使わない（ドメイン不定） */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={event.thumb}
+        alt=""
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={() => setBroken(true)}
+      />
+    </div>
+  );
+}
+
 export function EventCard({
   event,
   active = false,
@@ -67,6 +105,7 @@ export function EventCard({
       onMouseEnter={onHover ? () => onHover(event.id) : undefined}
       onMouseLeave={onHover ? () => onHover(null) : undefined}
     >
+      <Thumb event={event} />
       <div className="row1">
         <span className="cat">
           <i style={{ background: CATEGORIES[event.category].color }} />
