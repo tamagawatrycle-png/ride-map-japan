@@ -235,6 +235,7 @@ a {
   background: var(--accent);
   color: #fff;
   transition: 0.15s;
+  white-space: nowrap;
 }
 .btn:hover {
   background: var(--accent-strong);
@@ -867,7 +868,8 @@ a {
 .remind-overlay {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  /* Leaflet のコントロール(z-index:800)より上に */
+  z-index: 900;
   background: rgba(20, 16, 12, 0.42);
   display: flex;
   align-items: flex-end;
@@ -1011,12 +1013,384 @@ a {
   font-size: 11px;
   color: var(--faint);
 }
+.remind-subhead {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--accent-strong);
+}
+
+/* ---------- ヘッダー：マイページアイコン ---------- */
+.me-link {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--line2);
+  background: #fff;
+  flex-shrink: 0;
+  transition: 0.12s;
+}
+.me-link svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--sub);
+  fill: none;
+  stroke-width: 2;
+}
+.me-link:hover {
+  border-color: var(--accent);
+}
+.me-link:hover svg {
+  stroke: var(--accent);
+}
+
+/* ---------- オンボーディング ---------- */
+.ob-overlay {
+  position: fixed;
+  inset: 0;
+  /* Leaflet(800)・リマインド(900)より上 */
+  z-index: 950;
+  background: rgba(20, 16, 12, 0.46);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
+@media (min-width: 640px) {
+  .ob-overlay {
+    align-items: center;
+  }
+}
+.ob-card {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  padding: 20px;
+}
+.ob-head h2 {
+  margin: 6px 0 0;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.ob-head p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--faint);
+}
+.ob-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.ob-chips .chip {
+  font-size: 13px;
+  padding: 8px 15px;
+}
+.ob-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.ob-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line2);
+}
+.ob-dots i.on {
+  background: var(--accent);
+}
+.ob-foot {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+}
+.ob-skip {
+  border: none;
+  background: none;
+  color: var(--faint);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+}
+.ob-skip:hover {
+  color: var(--ink);
+}
+.ob-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ob-back {
+  border: 1px solid var(--line2);
+  background: #fff;
+  color: var(--sub);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+.ob-nav .btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- あなたへのピックアップ ---------- */
+.pickup {
+  margin: 4px 0 26px;
+}
+.pickup .listhead {
+  margin-bottom: 10px;
+}
+.pickup-why {
+  margin-left: 8px;
+  font-weight: 600;
+  color: var(--faint);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.pickup-edit {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.pickup-teaser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 22px;
+  padding: 11px 14px;
+  border: 1px dashed var(--line2);
+  border-radius: 13px;
+  background: var(--bg2);
+  font-size: 12.5px;
+  color: var(--sub);
+}
+.pickup-teaser svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+.pickup-teaser span {
+  min-width: 0;
+}
+.pickup-teaser .btn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ---------- マイページ ---------- */
+.me-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.me-sec {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  padding: 16px;
+}
+.me-sechead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.me-sechead h2 {
+  font-size: 15px;
+  font-weight: 800;
+}
+.me-editbtn {
+  margin-left: auto;
+  border: 1px solid var(--line2);
+  background: #fff;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 13px;
+  cursor: pointer;
+}
+.me-editbtn:hover {
+  border-color: var(--accent);
+}
+.me-count {
+  margin-left: auto;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.me-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+}
+.me-label {
+  flex-shrink: 0;
+  width: 56px;
+  font-size: 12px;
+  color: var(--faint);
+  font-weight: 600;
+}
+.me-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.me-chips i {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+.me-empty {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.me-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.me-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.me-list li:last-child {
+  border-bottom: none;
+}
+.me-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 0;
+}
+.me-days {
+  flex-shrink: 0;
+  min-width: 58px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--sub);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 8px;
+}
+.me-days.soon {
+  color: var(--accent-strong);
+  background: var(--accent-weak);
+  border-color: var(--accent-mid);
+}
+.me-body {
+  min-width: 0;
+}
+.me-body b {
+  display: block;
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.me-body small {
+  display: block;
+  font-size: 11px;
+  color: var(--sub);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.me-account p {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.7;
+}
+.me-account p b {
+  color: var(--ink);
+}
+.me-login {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line2);
+  background: var(--bg2);
+  color: var(--faint);
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 11px 20px;
+  cursor: not-allowed;
+}
+.me-login svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+@media (max-width: 640px) {
+  .me-link {
+    width: 30px;
+    height: 30px;
+  }
+  .me-link svg {
+    width: 15px;
+    height: 15px;
+  }
+  .hd .btn.sm {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+  .hd .wkcount b {
+    font-size: 12px;
+  }
+  .pickup-teaser {
+    flex-wrap: wrap;
+  }
+  .pickup-teaser .btn {
+    margin-left: 27px;
+  }
+}
 
 /* ---------- スプラッシュ（アプリ起動時のローディング画面） ---------- */
 #sr-splash {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  /* 最前面（Leaflet 800 / リマインド 900 / オンボーディング 950 より上） */
+  z-index: 1000;
   background: linear-gradient(160deg, #2a2018 0%, #6b3418 55%, var(--accent) 130%);
   overflow: hidden;
   opacity: 1;
@@ -1033,7 +1407,7 @@ a {
   background-size: cover;
   background-position: center 42%;
   /* ゆっくり寄るケンバーンズ効果でワクワク感を出す */
-  animation: sp-zoom 1.6s ease-out forwards;
+  animation: sp-zoom 2.6s ease-out forwards;
 }
 #sr-splash .sp-photo::after {
   content: "";
@@ -1090,10 +1464,10 @@ a {
 }
 @keyframes sp-zoom {
   from {
-    transform: scale(1.06);
+    transform: scale(1.1) translateY(6px);
   }
   to {
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 @keyframes sp-rise {
@@ -1106,10 +1480,80 @@ a {
     transform: translateY(0);
   }
 }
+
+/* ロードライン（左から引かれる） */
+#sr-splash .sp-road {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 33vh;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: sp-roaddraw 0.7s ease-out 0.1s forwards;
+}
+/* 走り抜けるロードバイク */
+#sr-splash .sp-rider {
+  position: absolute;
+  bottom: calc(33vh + 3px);
+  left: 0;
+  width: 92px;
+  transform: translateX(-120px);
+  animation: sp-ride 2s cubic-bezier(0.35, 0.05, 0.55, 1) 0.15s forwards;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+#sr-splash .sp-rider svg {
+  width: 100%;
+  height: auto;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#sr-splash .sp-rider .wh {
+  animation: sp-spin 0.55s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#sr-splash .sp-rider .wh path {
+  stroke-width: 1.6;
+  opacity: 0.85;
+}
+#sr-splash .sp-rider .fr {
+  stroke: var(--accent);
+  stroke-width: 3.4;
+}
+@keyframes sp-ride {
+  to {
+    transform: translateX(calc(100vw + 140px));
+  }
+}
+@keyframes sp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sp-roaddraw {
+  to {
+    transform: scaleX(1);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   #sr-splash .sp-photo,
-  #sr-splash .sp-inner {
+  #sr-splash .sp-inner,
+  #sr-splash .sp-road,
+  #sr-splash .sp-rider,
+  #sr-splash .sp-rider .wh {
     animation: none;
+  }
+  #sr-splash .sp-rider {
+    display: none;
+  }
+  #sr-splash .sp-road {
+    transform: none;
   }
 }
 

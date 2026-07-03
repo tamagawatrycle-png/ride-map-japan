@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 type Phase = "init" | "show" | "out" | "gone";
 
-const SHOW_MS = 700; // 表示時間（ユーザー要望: 0.5〜1秒）
+const SHOW_MS = 2000; // 表示時間（ユーザー要望: 2秒）
 const FADE_MS = 450; // フェードアウト
 
 export function Splash() {
@@ -42,6 +42,28 @@ export function Splash() {
   return (
     <div id="sr-splash" className={phase === "out" ? "out" : ""} aria-hidden="true">
       <div className="sp-photo" />
+
+      {/* 走り抜けるロードバイク（ホイール回転付き）＋ロードライン */}
+      <div className="sp-road" />
+      <div className="sp-rider">
+        <svg viewBox="0 0 120 74">
+          {/* 後輪・前輪（スポークは .wh で回転） */}
+          <g className="wh">
+            <circle cx="26" cy="52" r="16" />
+            <path d="M26 36v32M10 52h32M14.7 40.7l22.6 22.6M14.7 63.3l22.6-22.6" />
+          </g>
+          <g className="wh">
+            <circle cx="94" cy="52" r="16" />
+            <path d="M94 36v32M78 52h32M82.7 40.7l22.6 22.6M82.7 63.3l22.6-22.6" />
+          </g>
+          {/* フレーム・ハンドル・サドル */}
+          <path
+            className="fr"
+            d="M26 52 L46 26 L80 26 L94 52 M46 26 L58 52 L80 26 M58 52 L26 52 M46 26 L44 19 M38 19 L52 19 M80 26 L84 17 M84 17 L93 17"
+          />
+        </svg>
+      </div>
+
       <div className="sp-inner">
         <span className="sp-mk">
           <svg viewBox="0 0 24 24">
