@@ -53,6 +53,11 @@ export function removeMaybe(id: string): void {
   safeWrite(safeRead().filter((x) => x !== id));
 }
 
+/** アカウント同期用：リスト全体を置き換える（重複除去して保存）。 */
+export function setMaybeIds(ids: string[]): void {
+  safeWrite([...new Set(ids)]);
+}
+
 /** リマインドポップアップの1日1回制御。 */
 export function reminderShownToday(): boolean {
   try {

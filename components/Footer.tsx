@@ -43,6 +43,9 @@ export function Footer() {
               <li>
                 <Link href="/events">イベント一覧</Link>
               </li>
+              <li>
+                <Link href="/privacy">プライバシーポリシー</Link>
+              </li>
             </ul>
           </div>
         </div>

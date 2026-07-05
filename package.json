@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.69.0",
+    "@supabase/supabase-js": "^2.110.0",
     "@types/leaflet": "^1.9.21",
     "leaflet": "^1.9.4",
     "next": "16.2.9",

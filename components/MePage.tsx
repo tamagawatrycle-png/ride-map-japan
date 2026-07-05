@@ -18,6 +18,7 @@ import {
   type Profile,
 } from "@/lib/profile";
 import { getMaybeIds, removeMaybe, MAYBE_CHANGE_EVENT } from "@/lib/maybe";
+import { AuthSection } from "./AuthSection";
 
 const EVENTS = eventsData as unknown as Event[];
 
@@ -148,24 +149,12 @@ export function MePage() {
         )}
       </section>
 
-      {/* アカウント（近日公開） */}
+      {/* アカウント（Googleログイン／未設定時は近日公開表示） */}
       <section className="me-sec">
         <div className="me-sechead">
           <h2>アカウント</h2>
         </div>
-        <div className="me-account">
-          <p>
-            現在、回答と出るかもリストは<b>この端末に保存</b>されています。
-            ログイン機能（近日公開）で、複数端末での同期・プッシュ通知に対応予定です。
-          </p>
-          <button className="me-login" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="3.4" />
-              <path d="M5 20c1.2-3.6 3.8-5.4 7-5.4s5.8 1.8 7 5.4" />
-            </svg>
-            ログイン（近日公開）
-          </button>
-        </div>
+        <AuthSection />
       </section>
     </div>
   );
