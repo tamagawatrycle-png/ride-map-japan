@@ -1050,6 +1050,61 @@ a {
   color: var(--accent-strong);
 }
 
+/* ---------- ボトムナビ（ABEMA風・モバイルのみ） ---------- */
+.bottomnav {
+  display: none;
+}
+@media (max-width: 640px) {
+  .bottomnav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Leafletコントロール(800)より上・オーバーレイ(900+)より下 */
+    z-index: 850;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .bn-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 9px 0 7px;
+    color: var(--faint);
+    text-decoration: none;
+  }
+  .bn-item svg {
+    width: 23px;
+    height: 23px;
+    stroke: currentColor;
+  }
+  .bn-item span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .bn-item.on {
+    color: var(--accent);
+  }
+  .bn-item.on span {
+    font-weight: 800;
+  }
+  /* ナビ分の底上げ（コンテンツ・フッターが隠れないように） */
+  body {
+    padding-bottom: calc(58px + env(safe-area-inset-bottom));
+  }
+  /* リマインド等のボトムシートもナビの上に出す */
+  .remind-overlay,
+  .ob-overlay {
+    padding-bottom: calc(16px + 58px + env(safe-area-inset-bottom));
+  }
+}
+
 /* ---------- ヘッダー：マイページアイコン ---------- */
 .me-link {
   display: grid;
@@ -1390,13 +1445,9 @@ a {
 }
 
 @media (max-width: 640px) {
+  /* モバイルはボトムナビの「マイページ」に一本化（ヘッダーの人型は非表示） */
   .me-link {
-    width: 30px;
-    height: 30px;
-  }
-  .me-link svg {
-    width: 15px;
-    height: 15px;
+    display: none;
   }
   .hd .btn.sm {
     padding: 8px 11px;
