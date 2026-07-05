@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -24,6 +24,14 @@ const inter = Inter({
 const SITE_NAME = "STEP & RIDE";
 const SITE_DESC =
   "走るきっかけを、全てのサイクリストに。全国のサイクリングイベントを地図から発見。ヒルクライム・ロードレース・グラベル・ロングライドまで、次の一本が見つかる。";
+
+// iPhoneのセーフエリア（ホームバー）に env(safe-area-inset-*) を効かせるため
+// viewport-fit=cover を指定（ボトムナビの見切れ対策）
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {

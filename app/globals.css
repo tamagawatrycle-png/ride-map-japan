@@ -1073,20 +1073,24 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
-    padding: 9px 0 7px;
+    gap: 2px;
+    padding: 6px 0 5px;
     color: var(--faint);
     text-decoration: none;
+    min-width: 0;
   }
   .bn-item svg {
-    width: 23px;
-    height: 23px;
+    width: 19px;
+    height: 19px;
     stroke: currentColor;
+    flex-shrink: 0;
   }
   .bn-item span {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
+    line-height: 1.2;
+    white-space: nowrap;
   }
   .bn-item.on {
     color: var(--accent);
@@ -1096,12 +1100,12 @@ a {
   }
   /* ナビ分の底上げ（コンテンツ・フッターが隠れないように） */
   body {
-    padding-bottom: calc(58px + env(safe-area-inset-bottom));
+    padding-bottom: calc(48px + env(safe-area-inset-bottom));
   }
   /* リマインド等のボトムシートもナビの上に出す */
   .remind-overlay,
   .ob-overlay {
-    padding-bottom: calc(16px + 58px + env(safe-area-inset-bottom));
+    padding-bottom: calc(14px + 48px + env(safe-area-inset-bottom));
   }
 }
 
