@@ -27,7 +27,7 @@ export async function generateMetadata({
     title: event.name,
     description: summary,
     openGraph: {
-      title: `${event.name} | STEP & RIDE`,
+      title: `${event.name} | ハシロ！`,
       description: summary,
       type: "article",
     },
@@ -143,7 +143,7 @@ export default async function EventDetailPage({
                 編集部コメント
               </h2>
               <p className="text-xs" style={{ color: "#8a5c48" }}>
-                STEP &amp; RIDE 編集部 / TRYCLE
+                ハシロ！編集部 / TRYCLE
               </p>
             </div>
           </div>

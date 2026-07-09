@@ -9,12 +9,26 @@ export function Footer() {
           <div>
             <div className="brand">
               <span className="mk">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" />
-                  <circle cx="12" cy="10" r="2.4" />
+                <svg viewBox="0 0 64 64" className="mk-hashiro">
+                  <g transform="skewX(-8)">
+                    <text
+                      x="17"
+                      y="44"
+                      fontFamily="var(--font-noto-sans-jp), 'Hiragino Sans', sans-serif"
+                      fontWeight={900}
+                      fontSize="30"
+                      fill="#fff"
+                    >
+                      ハ
+                    </text>
+                    <rect x="47" y="18" width="6.5" height="19" rx="3.2" fill="#fff" />
+                    <circle cx="50.2" cy="44" r="3.8" fill="#fff" />
+                  </g>
                 </svg>
               </span>
-              STEP &amp; RIDE
+              <span className="wordmark">
+                ハシロ<i>！</i>
+              </span>
             </div>
             <div className="desc">
               すべてのサイクリストに、走るきっかけを。全国のサイクリングイベントを地図から発見できるサービス。

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="ハシロ！ HASHIRO STEP &amp; RIDE!">
+  <rect width="1200" height="630" fill="#e9622e"/>
+  <g transform="skewX(-8)">
+    <rect x="352" y="208" width="52" height="18" rx="9" fill="#fff" opacity=".85"/>
+    <rect x="328" y="240" width="76" height="18" rx="9" fill="#fff" opacity=".4"/>
+    <text x="432" y="262" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-weight="900" font-size="124" fill="#ffffff" letter-spacing="4">ハシロ</text>
+    <rect x="848" y="154" width="26" height="76" rx="13" fill="#fff"/>
+    <circle cx="861" cy="258" r="15" fill="#fff"/>
+  </g>
+  <text x="600" y="330" text-anchor="middle" font-family="'Helvetica Neue',Inter,sans-serif" font-weight="700" font-size="26" letter-spacing="10" fill="#ffffff" opacity=".9">HASHIRO STEP &amp; RIDE!</text>
+  <text x="600" y="420" text-anchor="middle" font-family="'Hiragino Sans','Noto Sans JP',sans-serif" font-weight="600" font-size="38" fill="#ffffff" opacity=".95">すべてのサイクリストに、走るきっかけを。</text>
+  <rect x="420" y="486" width="344" height="4" rx="2" fill="#ffffff" opacity=".35"/>
+  <circle cx="764" cy="488" r="10" fill="#ffffff"/>
+</svg>

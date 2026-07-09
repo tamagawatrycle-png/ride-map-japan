@@ -144,6 +144,40 @@ a {
   font-size: 11px;
   letter-spacing: 0.06em;
 }
+/* ハシロ！ Aタイプ ワードマーク（skew -8°のスピードタイポ） */
+.mk svg.mk-hashiro {
+  width: 20px;
+  height: 20px;
+  stroke: none;
+  fill: none;
+}
+.logo .logo-txt {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.wordmark {
+  display: inline-block;
+  transform: skewX(-8deg);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.logo .wordmark {
+  font-size: 17.5px;
+}
+.wordmark i {
+  font-style: normal;
+  color: var(--accent);
+}
+.logo-txt small {
+  margin-top: 3px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--faint);
+}
 .rm-nav {
   margin-left: 12px;
   display: flex;
@@ -1600,10 +1634,32 @@ a {
 #sr-splash.out .sp2 {
   transform: translateY(-10px);
 }
-/* ブランド名（Inter・字間が広がりながら現れる） */
+/* ブランドワードマーク（Aタイプ・skew -8°で立ち上がる） */
+#sr-splash .sp2-brand {
+  display: inline-block;
+  font-size: clamp(30px, 8vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  opacity: 0;
+  transform: skewX(-8deg) translateY(12px);
+  animation: sp2-brandin 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.05s forwards;
+}
+#sr-splash .sp2-brand i {
+  font-style: normal;
+  color: var(--accent);
+}
+@keyframes sp2-brandin {
+  to {
+    opacity: 1;
+    transform: skewX(-8deg) translateY(0);
+  }
+}
+/* サブテーマ（Inter・字間が広がりながら現れる） */
 #sr-splash .sp2-kicker {
+  margin-top: 12px;
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--accent);
@@ -1696,6 +1752,7 @@ a {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  #sr-splash .sp2-brand,
   #sr-splash .sp2-kicker,
   #sr-splash .sp2-t,
   #sr-splash .sp2-route,
@@ -1703,6 +1760,9 @@ a {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+  #sr-splash .sp2-brand {
+    transform: skewX(-8deg);
   }
 }
 

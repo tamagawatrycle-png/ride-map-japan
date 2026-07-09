@@ -44,7 +44,10 @@ export function Splash() {
   return (
     <div id="sr-splash" className={phase === "out" ? "out" : ""} aria-hidden="true">
       <div className="sp2">
-        <span className="sp2-kicker">STEP &amp; RIDE</span>
+        <span className="sp2-brand">
+          ハシロ<i>！</i>
+        </span>
+        <span className="sp2-kicker">HASHIRO STEP &amp; RIDE!</span>
         <div className="sp2-mission">
           <span className="sp2-line">
             <span className="sp2-t sp2-t1">すべてのサイクリストに、</span>

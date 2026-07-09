@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "チップス",
   description:
-    "はじめてのイベント参加・機材・トレーニングのコツ。STEP & RIDE 編集部のノウハウ集（準備中）。",
+    "はじめてのイベント参加・機材・トレーニングのコツ。ハシロ！編集部のノウハウ集（準備中）。",
 };
 
 // 3本柱の第2柱「チップス」— 現在は準備中のティーザーページ。

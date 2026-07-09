@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "プライバシーポリシー",
   description:
-    "STEP & RIDE が取得する情報・利用目的・保存先・削除方法について。",
+    "ハシロ！（HASHIRO STEP & RIDE!）が取得する情報・利用目的・保存先・削除方法について。",
 };
 
 // Google OAuth 同意画面にも掲載する正式なプライバシーポリシー。
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         プライバシーポリシー
       </h1>
       <p className="mt-3 text-sm" style={{ color: "var(--sub)" }}>
-        STEP &amp; RIDE（運営：TRYCLE合同会社。以下「当サービス」）は、
+        ハシロ！（HASHIRO STEP &amp; RIDE! 運営：TRYCLE合同会社。以下「当サービス」）は、
         利用者の個人情報を以下のとおり取り扱います。
       </p>
 
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
 
       <Section title="8. お問い合わせ">
         <p>
-          TRYCLE合同会社（STEP &amp; RIDE 運営）
+          TRYCLE合同会社（ハシロ！ 運営）
           <br />
           お問い合わせ：
           <a

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 130" role="img" aria-label="ハシロ！ HASHIRO STEP &amp; RIDE!">
+  <g transform="skewX(-8)">
+    <rect x="52" y="58" width="26" height="9" rx="4.5" fill="#e9622e"/>
+    <rect x="40" y="74" width="38" height="9" rx="4.5" fill="#e9622e" opacity=".45"/>
+    <text x="92" y="86" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-weight="900" font-size="62" fill="#1a1b1d" letter-spacing="2">ハシロ</text>
+    <rect x="300" y="32" width="13" height="38" rx="6.5" fill="#e9622e"/>
+    <circle cx="306.5" cy="84" r="7.5" fill="#e9622e"/>
+  </g>
+  <text x="86" y="112" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="12" letter-spacing="5" fill="#9a9da2">HASHIRO STEP &amp; RIDE!</text>
+</svg>

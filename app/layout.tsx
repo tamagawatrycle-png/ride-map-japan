@@ -11,7 +11,7 @@ import { BottomNav } from "@/components/BottomNav";
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "700", "900"], // 900 はロゴ（ハシロ！）用
   display: "swap",
 });
 
@@ -21,7 +21,8 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_NAME = "STEP & RIDE";
+const SITE_NAME = "ハシロ！";
+const SITE_SUB = "HASHIRO STEP & RIDE!";
 const SITE_DESC =
   "走るきっかけを、全てのサイクリストに。全国のサイクリングイベントを地図から発見。ヒルクライム・ロードレース・グラベル・ロングライドまで、次の一本が見つかる。";
 
@@ -40,10 +41,11 @@ export const metadata: Metadata = {
   },
   description: SITE_DESC,
   openGraph: {
-    title: SITE_NAME,
+    title: `${SITE_NAME} — ${SITE_SUB}`,
     description: SITE_DESC,
     type: "website",
     locale: "ja_JP",
+    images: ["/og.png"],
   },
 };
 
