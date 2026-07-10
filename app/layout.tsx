@@ -35,11 +35,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  applicationName: SITE_NAME,
   title: {
     default: `${SITE_NAME} — 走るきっかけを、全てのサイクリストに。`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESC,
+  // ホーム画面に追加したときのアイコン名（iOSはこの値を使う）。
+  // 既存アイコンは自動更新されないため、一度削除して再追加すると「ハシロ！」になる。
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: `${SITE_NAME} — ${SITE_SUB}`,
     description: SITE_DESC,
